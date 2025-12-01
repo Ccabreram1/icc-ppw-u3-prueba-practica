@@ -43,7 +43,7 @@
                 }
               ],
               "outputHashing": "all",
-              "baseHref": "//icc-ppw-u3-prueba-practica/",
+              "baseHref": "/icc-ppw-u3-prueba-practica/",
               "deployUrl": "/icc-ppw-u3-prueba-practica/"
             },
             "development": {
