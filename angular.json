@@ -30,6 +30,8 @@
           },
           "configurations": {
             "production": {
+              "baseHref": "/Prueba-Practica/",
+              "deployUrl": "/Prueba-Practica/",
               "budgets": [
                 {
                   "type": "initial",
