@@ -30,8 +30,6 @@
           },
           "configurations": {
             "production": {
-              "baseHref": "//icc-ppw-u3-prueba-practica/",
-              "deployUrl": "/icc-ppw-u3-prueba-practica/",
               "budgets": [
                 {
                   "type": "initial",
@@ -44,7 +42,9 @@
                   "maximumError": "8kB"
                 }
               ],
-              "outputHashing": "all"
+              "outputHashing": "all",
+              "baseHref": "//icc-ppw-u3-prueba-practica/",
+              "deployUrl": "/icc-ppw-u3-prueba-practica/"
             },
             "development": {
               "optimization": false,
