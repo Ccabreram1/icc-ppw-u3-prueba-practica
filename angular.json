@@ -30,8 +30,8 @@
           },
           "configurations": {
             "production": {
-              "baseHref": "/Prueba-Practica/",
-              "deployUrl": "/Prueba-Practica/",
+              "baseHref": "//icc-ppw-u3-prueba-practica/",
+              "deployUrl": "/icc-ppw-u3-prueba-practica/",
               "budgets": [
                 {
                   "type": "initial",
