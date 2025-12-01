@@ -1,0 +1,51 @@
+<!-- home-page.html -->
+<section class="p-4">
+    <!-- Hero con total de registros -->
+    <article class="hero mb-4">
+        <div class="hero-content">
+            <div>
+                <h2 class="text-xl font-bold">Pokémon</h2>
+
+                @if (pokemonService.data()?.count) {
+                    <p>Total de registros: {{ pokemonService.data().count }}</p>
+                }
+            </div>
+        </div>
+    </article>
+
+    <!-- Listado semántico -->
+    <section>
+        @if (pokemonService.loading()) {
+            <p>Cargando...</p>
+        }
+
+        @if (pokemonService.error()) {
+            <p class="text-red-600">{{ pokemonService.error() }}</p>
+        }
+
+        @if (pokemonService.data()?.results) {
+            <ul class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+
+                @for (item of (pokemonService.data()?.results ?? []); track item) {
+                    <li>
+                        <article class="card p-4">
+                            <h3 class="font-semibold capitalize">{{ item.name }}</h3>
+
+                            <!-- Botón ver detalles -->
+                            <button class="btn btn-link" (click)="goToDetail(item.url)">
+                                Ver detalles
+                            </button>
+                        </article>
+                    </li>
+                }
+
+            </ul>
+        }
+    </section>
+
+    <!-- Controles de paginación -->
+    <div class="mt-6 flex gap-2">
+        <button class="btn" (click)="prevPage()" [disabled]="offset() === 0">Anterior</button>
+        <button class="btn" (click)="nextPage()">Siguiente</button>
+    </div>
+</section>

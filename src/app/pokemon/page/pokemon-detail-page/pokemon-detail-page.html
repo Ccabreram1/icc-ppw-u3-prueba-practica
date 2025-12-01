@@ -1,0 +1,55 @@
+<!-- pokemon-detail-page.html -->
+<article class="p-4 max-w-3xl mx-auto">
+    <header class="mb-4">
+        @if(pokemonService.data()?.name){
+        <h1 class="text-2xl font-bold capitalize">{{ pokemonService.data().name }}</h1>
+        }
+
+    </header>
+
+    <figure class="mb-4">
+        @if(pokemonService.data()?.sprites?.front_default){
+        <img [src]="pokemonService.data().sprites.front_default" alt="Sprite" class="w-48 h-48" />
+
+        }
+    </figure>
+
+    <section class="grid grid-cols-2 gap-4">
+        <div>
+            <h3 class="font-semibold">Tipos</h3>
+            <ul>
+                @for (t of (pokemonService.data()?.types ?? []); track t) {
+                    <li class="capitalize">{{ t.type.name }}</li>
+                }
+
+            </ul>
+        </div>
+
+        <div>
+            <h3 class="font-semibold">Medidas</h3>
+            <p>Altura: {{ pokemonService.data()?.height }}</p>
+            <p>Peso: {{ pokemonService.data()?.weight }}</p>
+        </div>
+
+        <div>
+            <h3 class="font-semibold">Características</h3>
+            <p>Experiencia base: {{ pokemonService.data()?.base_experience }}</p>
+            <p>Número de movimientos: {{ pokemonService.data()?.moves?.length }}</p>
+            <p>Orden: {{ pokemonService.data()?.order }}</p>
+        </div>
+
+        <div>
+            <h3 class="font-semibold">Estadísticas</h3>
+            <ul>
+                @for (s of (pokemonService.data()?.stats ?? []); track s) {
+                <li>{{ s.stat.name }}: {{ s.base_stat }}</li>
+                }
+
+            </ul>
+        </div>
+    </section>
+
+    <div class="mt-6">
+        <button class="btn" (click)="back()">Volver</button>
+    </div>
+</article>

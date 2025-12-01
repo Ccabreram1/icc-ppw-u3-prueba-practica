@@ -1,0 +1,53 @@
+<section class="min-h-screen flex items-center justify-center p-4">
+  <article class="w-full max-w-md">
+
+    <header class="text-center mb-6">
+      <h1 class="text-2xl font-bold">Iniciar sesión</h1>
+    </header>
+
+    <!-- Formulario reactivo -->
+    <form [formGroup]="form" (ngSubmit)="onSubmit()" class="space-y-4">
+
+      <!-- Email -->
+      <label class="block">
+        <span>Email</span>
+        <input 
+          formControlName="email"
+          type="email"
+          class="input input-bordered w-full"
+        />
+      </label>
+
+      @if (form.get('email')?.invalid && form.get('email')?.touched) {
+        <p class="text-sm text-red-600">Email inválido</p>
+      }
+
+      <!-- Password -->
+      <label class="block">
+        <span>Contraseña</span>
+        <input 
+          formControlName="password"
+          type="password"
+          class="input input-bordered w-full"
+        />
+      </label>
+
+      @if (form.get('password')?.invalid && form.get('password')?.touched) {
+        <p class="text-sm text-red-600">
+          La contraseña debe tener al menos 6 caracteres
+        </p>
+      }
+
+      <!-- Mensaje general de error -->
+      @if (errorMessage()) {
+        <p class="text-red-700">{{ errorMessage() }}</p>
+      }
+
+      <button type="submit" class="btn btn-primary w-full">
+        Ingresar
+      </button>
+
+    </form>
+
+  </article>
+</section>
